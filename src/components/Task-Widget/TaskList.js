@@ -4,7 +4,8 @@ import TasksContext from '../../context/tasks-context';
 import FiltersContext from '../../context/filters-context';
 import getVisibleTasks from '../../selectors/tasks';
 import TaskListItem from './TaskListItem';
-import {CompletedRangeList} from './CompletedRangeList'
+import { CompletedToday } from './CompletedToday';
+import { CompletedRangeList } from './CompletedRangeList'
 
 export default () => {
 
@@ -28,7 +29,7 @@ export default () => {
       })}
     </ul>
 
-    {!filters.completed && <CompletedRangeList />}
+    {!filters.completed && <CompletedToday/>}
     
     </>
   )

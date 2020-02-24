@@ -27,7 +27,7 @@ export const CompletedRangeList = () => {
       {(tasks.filter((task) => {
         return task.completed && task.completedDate > moment().startOf(completedRange).valueOf()
       })).map((task) => {
-        return <TaskListItem key={task.description} task={task}/>
+        return <TaskListItem key={task.id} task={task}/>
       })}
       {console.log(moment().startOf('day').valueOf())}
     </ul>
