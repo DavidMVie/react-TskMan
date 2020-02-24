@@ -1,0 +1,24 @@
+/* Task Tool Bar above the tasks,  holds icons for addig new tasks deleting all or organising existing tasks.*/
+
+div.task-tool-bar {
+  display: flex;
+  margin: $s-size auto;
+  justify-content: flex-start;
+  border: 1px solid rgba(206, 203, 203, 0.3);
+  padding: $s-size;
+  border-radius: $s-size;
+}
+
+div.task-tool-bar i {
+  color: $yellow;
+  cursor: pointer;
+}
+
+div.task-tool-bar i.fa-trash-alt,
+div.task-tool-bar i.fa-clipboard {
+  margin-left: $m-size;
+}
+
+div.task-tool-bar i.fa-user-circle {
+  margin-right: auto;
+}

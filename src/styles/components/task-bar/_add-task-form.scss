@@ -1,0 +1,20 @@
+form.add-task-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+form.add-task-form {
+  padding: $m-size;
+}
+
+form.add-task-form div,
+form.add-task-form h2 {
+  margin-bottom: $l-size;
+}
+
+form.add-task-form h2,
+form.add-task-form div:last-child {
+  text-align: center;
+}
+
+

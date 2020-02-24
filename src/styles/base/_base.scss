@@ -1,0 +1,96 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#dbdbdb+0,737b7e+100 */
+  background: #dbdbdb; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #dbdbdb 0%, #737b7e 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  #dbdbdb 0%,#737b7e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  #dbdbdb 0%,#737b7e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#737b7e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;  
+  min-height: 100vh;
+}
+
+.container {
+  width: 90vw;
+  margin: 0 auto
+}
+
+p, a, span, li, input, button, label {
+  font-size: $s-size;
+  color: $gray-black;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+  color: $gray-black;
+}
+
+h1 {
+  font-size: $l-size;
+}
+
+h2 {
+  font-size: $ml-size;
+}
+
+h3 {
+  font-size: $m-size;
+}
+
+input {
+  height: 30px;
+  font-family: inherit;
+  width: 63%;
+  text-align: left;
+  text-indent: 3px;
+}
+
+textarea {
+  min-height: 70px;
+  width: 100%;
+}
+
+
+/* Buttons */
+.btn-yell {
+  padding: 8px 25px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  font-family: inherit;
+  background: $yellow;
+  border: 1px solid rgb(146, 146, 146);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-yell:hover {
+  background: darken($yellow, 10%)
+}
+
+.btn-yell:active {
+  box-shadow: inset 0 0 3px rgba(0,0,0, .5);
+}
+
+i.fas {
+  font-size: $ml-size
+}
+

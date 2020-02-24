@@ -1,0 +1,22 @@
+header {
+  background: $dark-gray;
+  padding: 10px 0;
+  margin: 0;
+  color: $off-white;
+}
+
+header h1 {
+  color: $yellow;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: $l-size
+}
+
+.container.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+

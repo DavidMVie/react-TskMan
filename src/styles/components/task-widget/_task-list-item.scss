@@ -1,0 +1,125 @@
+li.task-list-item {
+  box-shadow: 1px 1px 15px rgba(0,0,0,.3);
+  border-radius: 5px;
+  list-style: none;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 5px 0;
+
+}
+
+li.task-list-item div.task-wrapper{
+  min-height: $xl-size;
+  border-radius: 5px;
+  border-left: 2px solid $yellow;
+  list-style: none;
+  display: flex;
+  position: relative;
+}
+
+li.task-list-item:not(:first-child) {
+  margin-top: 10px;
+}
+
+div.task-col-1 {
+  border-right: 1px solid rgb(223, 223, 223);
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.task-col-1 input[type="checkbox"] {
+  height: $s-size;
+  width: $s-size;
+  cursor: pointer;
+}
+
+div.task-col-1 i.fas.fa-sticky-note { 
+  color: $gray;
+  cursor: pointer;
+  font-size: $s-size;
+}
+
+div.task-col-2 {
+  flex-grow: 1;
+  padding: 5px $xs-size 0;
+}
+
+div.task-col-2 .task-desc {
+  font-weight: bold;
+  padding: 5px 0;
+  text-indent: 2px;
+}
+
+div.task-col-2 .task-lower-half {
+  display: flex;
+  align-items: flex-start;
+ 
+}
+
+div.task-col-2 p {
+  padding: $xs-size 0 0;
+  font-size: $xxs-size;
+
+  
+}
+
+div.task-col-2 a {
+  font-size: inherit
+}
+
+div.task-col-3 {
+  border-left: 1px solid rgb(223, 223, 223);
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.task-col-3 i {
+  color: $gray;
+  cursor: pointer;
+  font-size: $s-size;
+}
+
+li.task-completed {
+  background: #ADB1B2;
+  opacity: .6;
+  transform: scale(.9);
+  text-decoration: line-through;
+}
+
+// Task list item, the date changer
+.edit-date-wrapper {
+  padding: $xs-size 0 0;
+}
+
+.change-due-date-link {
+  color: dodgerblue;
+}
+
+.edit-date-wrapper input {
+  height: 18px;
+  font-size: .9rem;
+
+}
+
+.edit-date-wrapper i {
+  font-size: $s-size;
+
+}
+
+.edit-date-wrapper i.fas.fa-check {
+  margin-left: $xs-size;
+  color: $green;
+  cursor: pointer;
+}
+
+.edit-date-wrapper i.fas.fa-times {
+  color: $red;
+  cursor: pointer;
+}
+
