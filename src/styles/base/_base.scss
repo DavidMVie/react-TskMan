@@ -33,6 +33,10 @@ p, a, span, li, input, button, label {
   color: $gray-black;
 }
 
+.txt-center {
+  text-align: center;
+}
+
 li {
   list-style: none;
 }
@@ -54,6 +58,8 @@ h2 {
 h3 {
   font-size: $m-size;
 }
+
+
 
 input {
   height: 30px;

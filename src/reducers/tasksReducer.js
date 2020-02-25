@@ -17,7 +17,7 @@ import moment from 'moment';
 export default (state, action) => {
   switch (action.type) {
     case 'POPULATE_TASKS':
-      return action.tasks;
+      return action.storedTasks;
     case 'ADD_TASK':
       return [
         ...state,
@@ -58,6 +58,16 @@ export default (state, action) => {
 
     case 'WIPE_OUT': 
       return []
+    
+    case 'EDIT_DESCRIPTION': 
+    return state.map((task) => {
+      if(task.id === action.id) {
+        return {
+          ...task,
+          description: action.description
+        }
+      }
+    })
 
     case 'CHANGE_DUE_DATE':
       return state.map((task) => {

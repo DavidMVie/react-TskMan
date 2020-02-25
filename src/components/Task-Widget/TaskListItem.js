@@ -18,6 +18,15 @@ export default (props) => {
 
   const handleChange = e => setEditedDescription({html: e.target.value})
 
+  const handleUpdateDescription = () => {
+    // on blur
+    dispatch({
+      type: 'EDIT_DESCRIPTION',
+      id: props.task.id,
+      description: editedDescription.html
+    })
+  }
+
   const handleRemoveItem = () => {
     dispatch({type: 'REMOVE_TASK', id: props.task.id})
   }
@@ -86,6 +95,7 @@ export default (props) => {
             html={editedDescription.html}
             disabled={false}
             onChange={handleChange}
+            onBlur={handleUpdateDescription}
           />
           <div className="task-lower-half">          
             {editDueDate ?  

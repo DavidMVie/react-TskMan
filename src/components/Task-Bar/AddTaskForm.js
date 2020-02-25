@@ -13,7 +13,6 @@ export default () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(noteText)
     dispatch({type: 'ADD_TASK', task: {
       id: uuid(),
       createdAt: moment().valueOf(),

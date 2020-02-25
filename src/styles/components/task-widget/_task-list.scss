@@ -1,8 +1,12 @@
 ul.task-list {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   padding: 0;
   width: 90%; 
   
+}
+
+ul.task-list.incomplete {
+  min-height: 100px;
 }

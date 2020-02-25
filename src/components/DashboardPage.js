@@ -12,63 +12,23 @@ import filtersReducer from '../reducers/filtersReducer';
 export default () => {
 
   // Tasks Context:  state and dispatch function
-  const [ tasks, dispatch ] = useReducer(tasksReducer, [    {
-    id:  uuid(), 
-    description: 'Drink Beer',
-    dueDate: moment().add(4, 'days').valueOf(),
-    notes: [],
-    completed: false,
-    completedDate: undefined
-  },
-  {
-    id:  uuid(), 
-    description: 'Fall Over',
-    dueDate: moment().add(50, 'days').valueOf(),
-    notes: [],
-    completed: false,
-    completedDate: undefined
-  },
-  {
-    id:  uuid(), 
-    description: 'Wawaweewa',
-    dueDate: moment().subtract(4, 'days').valueOf(),
-    notes: [],
-    completed: false,
-    completedDate: undefined
-  },
-  {
-    id:  uuid(), 
-    description: 'Buy Kebab',
-    dueDate: moment().subtract(14, 'days').valueOf(),
-    notes: [],
-    completed: false,
-    completedDate: undefined
-  },
-  {
-    id:  uuid(), 
-    description: 'My Sharona',
-    dueDate: moment().subtract(14, 'days').valueOf(),
-    notes: [],
-    completed: true,
-    completedDate: moment().subtract(2, 'weeks').valueOf()
-  },
-  {
-    id:  uuid(), 
-    description: 'Hopippla!',
-    dueDate: moment().subtract(12, 'days').valueOf(),
-    notes: [],
-    completed: true,
-    completedDate: moment().subtract(14, 'hour').valueOf()
-  },
-  {
-    id:  uuid(), 
-    description: 'Jimi!',
-    dueDate: moment().subtract(12, 'days').valueOf(),
-    notes: [],
-    completed: true,
-    completedDate: moment().subtract(50, 'days').valueOf()
-  },
-])
+  const [ tasks, dispatch ] = useReducer(tasksReducer, [])
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('Tasks'));
+
+    console.log('Stored Tasks ', storedTasks);
+    if(storedTasks) {
+      dispatch({
+        type: 'POPULATE_TASKS',
+        storedTasks
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('Tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   const filtersReducerDefaultState = {
     text: '',
@@ -79,14 +39,7 @@ export default () => {
   // Filters Context: state and dispatch function
   const [ filters, filtersDispatch ] = useReducer(filtersReducer, filtersReducerDefaultState)
 
-
-  // Retrieve stored tasks on DOM Mount
-  // for now just some dummy data
-
-
-
-
-  
+ 
   return (
     <TasksContext.Provider value={{tasks, dispatch}}>
      <FiltersContext.Provider value={{filters, filtersDispatch}}>
@@ -96,6 +49,5 @@ export default () => {
       </div>
       </FiltersContext.Provider>
     </TasksContext.Provider>
-
   )
 }

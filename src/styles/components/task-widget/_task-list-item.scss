@@ -111,6 +111,9 @@ li.task-completed {
   font-size: $s-size;
 
 }
+.task-list-item {
+  background: rgb(245, 245, 245);
+}
 
 .edit-date-wrapper i.fas.fa-check {
   margin-left: $xs-size;
@@ -122,4 +125,5 @@ li.task-completed {
   color: $red;
   cursor: pointer;
 }
+
 
