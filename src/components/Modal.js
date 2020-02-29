@@ -5,7 +5,7 @@ import Overlay from './overlay';
 import { centerEl } from '../utils/utils';
 
 const Modal = (props) => {
-  const [showOverlay, setOverlay]  = useState(props.showOverlay || false)
+  const [showOverlay]  = useState(props.showOverlay || false)
 
   useEffect(() => {
     centerEl(document.querySelector('.modal'), {y: -60})

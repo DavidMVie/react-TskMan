@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TaskFilters from '../TaskFilters';
-import PaginationBar from '../PaginationBar';
+import {PaginationBar} from '../PaginationBar';
 import TaskList from './TaskList';
 
 export default () => {

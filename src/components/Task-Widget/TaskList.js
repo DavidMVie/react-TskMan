@@ -5,18 +5,23 @@ import FiltersContext from '../../context/filters-context';
 import getVisibleTasks from '../../selectors/tasks';
 import {IncompleteTasks} from './IncompleteTasks';
 import { CompletedTasks } from './CompletedTasks'
+import PaginationContext from '../../context/pagination-context';
 
+ const TaskList = () => {
 
-export default () => {
-
-  const { tasks } = useContext(TasksContext)
-  const { filters } = useContext(FiltersContext)
+  const { tasks } = useContext(TasksContext);
+  const { filters } = useContext(FiltersContext);
+  const { paginationSettings } = useContext(PaginationContext);
 
   const [ taskList, setTaskList ] = useState(tasks);
+  const [ incompleteTaskCount, setIncompleteTaskCount ] = useState(0)
 
-    useEffect(() => {
-    setTaskList(getVisibleTasks(tasks, filters));
-  }, [tasks, filters])
+  useEffect(() => {
+    const filteredTasks = getVisibleTasks(tasks, filters);
+    setIncompleteTaskCount(filteredTasks.length);
+    const skip = (paginationSettings.onPage - 1) * paginationSettings.tasksPerPage
+    setTaskList(filteredTasks.slice(skip, skip + paginationSettings.tasksPerPage))
+  }, [tasks, filters, paginationSettings])
 
   const setTasksSentence = (tasksCount) => {
     if(tasksCount === 0) {
@@ -30,9 +35,11 @@ export default () => {
 
   return (
     <>
-     {!filters.completed && <h3>You have {setTasksSentence(taskList.length)} to complete..</h3>}
+     {!filters.completed && <h3>You have {setTasksSentence(incompleteTaskCount)} to complete..</h3>}
      {!filters.completed ? <IncompleteTasks haveTasks={tasks.length > 0} taskList={taskList} /> :  <CompletedTasks taskList={taskList} /> }
     </>
   )
 }
 
+
+export { TaskList as default }

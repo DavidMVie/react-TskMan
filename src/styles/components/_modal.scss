@@ -21,8 +21,15 @@ body {
   z-index: 20;
   top: 0;
   max-width: 80vw;
-  padding: 0px $m-size
-  
+  padding: $xs-size $m-size;
+  border-radius: $xs-size
+}
+
+.modal h2 {
+  text-align: center;
+  padding-bottom: 10px;
+  margin: $s-size 0 $m-size;
+  border-bottom: 1px solid rgb(233, 233, 233);
 }
 
 .modal .close-me {

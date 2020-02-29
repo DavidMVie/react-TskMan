@@ -1,0 +1,12 @@
+#taskOrganiserContent label {
+  margin-right: $s-size;
+}
+
+#taskOrganiserContent > div:last-child {
+  margin: 20px 0;
+}
+
+
+#taskOrganiserContent select {
+  height: 30px;
+}

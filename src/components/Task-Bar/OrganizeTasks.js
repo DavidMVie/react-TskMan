@@ -4,7 +4,7 @@ export default () => {
 
   return (
     <div id="taskOrganiserContent">
-      <h1>Task Organiser</h1>
+      <h2>Task Organiser</h2>
       <div>
         <label htmlFor="tasksPerPage">Task Per Page</label>
         <input type="number" id="tasksPerPage" />

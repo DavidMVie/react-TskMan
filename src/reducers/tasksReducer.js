@@ -66,6 +66,8 @@ export default (state, action) => {
           ...task,
           description: action.description
         }
+      }else {
+        return task;
       }
     })
 

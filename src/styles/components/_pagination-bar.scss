@@ -10,3 +10,33 @@
   padding: 0px 10px;
   border-radius: 10px;
 }
+
+.pagination-bar ul {
+  display: flex;
+  margin: 5px
+}
+
+.pagination-bar ul li {
+  padding: 2px 4px;
+  /* background: #65297A; */
+  border: 1px solid rgb(206, 206, 205);
+  border-radius: 2px;
+  color: rgb(54, 54, 54);
+  list-style: none;
+  margin-left: 5px;
+  cursor: pointer;
+
+}
+
+.pagination-bar ul li.current-page {
+  color: #FFF;
+  box-shadow: inset 1px 1px 10px rgba(0,0,0, .8);  
+  background:#F3E569
+}
+
+.pagination-bar ul li:active {
+  background: #F3E569;
+  box-shadow: inset 2px 2px 6px rgba(0,0,0, .8);
+
+}
+
