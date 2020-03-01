@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import uuid from 'uuid';
 import TasksContext from '../../context/tasks-context';
+import { set } from 'mongoose';
 
 export default () => {
 
@@ -26,6 +27,9 @@ export default () => {
       completed: false,
       completedDate: null
     }})
+    setDescription('');
+    setDueDate('');
+    setNoteText('');
   }
 
   return (

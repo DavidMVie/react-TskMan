@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import FiltersContext from '../context/filters-context';
+import PaginationContext from '../context/pagination-context';
 
 export default () => { 
 
   const { filters, filtersDispatch } = useContext(FiltersContext);
+  const { paginationDispatch } = useContext(PaginationContext)
 
   const handleTextChange = (e) => {
     filtersDispatch({
@@ -17,6 +19,10 @@ export default () => {
     filtersDispatch({
       type: 'SET_COMPLETED_STATUS',
       completed
+    })
+    paginationDispatch({
+      type: 'SET_ONPAGE',
+      onPage: 1
     })
   }
 

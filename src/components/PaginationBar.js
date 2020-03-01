@@ -11,12 +11,19 @@ export const PaginationBar = () => {
   const { paginationSettings, paginationDispatch } = useContext(paginationContext)
 
   const incompleteTasks = tasks.filter((task) => {
-    return !task.completed
+    return !task.completed && task.description.toLowerCase().includes(filters.text.toLowerCase())
   })
 
 
   const paginationLinks = () => {
-    const links = Math.ceil(incompleteTasks.length / paginationSettings.tasksPerPage)
+    let links;
+    console.log(filters.completed)
+    if(!filters.completed) {
+      links = Math.ceil(incompleteTasks.length / paginationSettings.tasksPerPage)
+    }else {
+      links = Math.ceil((tasks.length - incompleteTasks.length) / paginationSettings.tasksPerPage)
+    }
+
     let i = 1;
     const arr = [];
     while(i <= links) {
@@ -29,18 +36,18 @@ export const PaginationBar = () => {
   return (
     <div className="pagination-bar">
   
-      <span>Results: 
+      <span>Results:  <span className="results-count">
         {!filters.completed ? 
           incompleteTasks.length
           :
           tasks.length - incompleteTasks.length
         }
+        </span>
       </span>
       
       <ul>
+        <span className="pagination-bar-pages">Pages: </span>
         {paginationLinks().map((pageNumber) => {
-          console.log('Page Number ', pageNumber);
-          console.log(' On page: ', paginationSettings.onPage);
           return (
             <li 
             key={pageNumber} 

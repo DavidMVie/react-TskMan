@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import PaginationContext from '../../context/pagination-context';
 
 export default () => {
 
+  const { paginationSettings, paginationDispatch }  = useContext(PaginationContext);
+
+  useEffect(() => {
+    paginationDispatch({
+      type: 'SET_ONPAGE',
+      onPage: 1
+    })
+  }, [paginationSettings.tasksPerPage])
+
+  console.log(paginationSettings, 'pagination settings')
   return (
     <div id="taskOrganiserContent">
       <h2>Task Organiser</h2>
       <div>
         <label htmlFor="tasksPerPage">Task Per Page</label>
-        <input type="number" id="tasksPerPage" />
-      </div>
-      <div>
-        <label htmlFor="sortTasks">Sort Task Display </label>
-        <select id="sortTasks">
-          <option value="custom_Desc">Manually Sort (drag and drop)</option>
-          <option value="createdAt_Desc">By Date Added (Newest Top)</option>
-          <option value="createdAt_Asc">By Date Added (Oldest Top)</option>
-          <option value="dueDate_Asc">By Due Date (Soonest Top)</option>
-          <option value="description_Asc">Task Name (Alphabetical)</option>
-        </select>
+        <input 
+          type="number" 
+          min="1"
+          id="tasksPerPage" 
+          value={paginationSettings.tasksPerPage}
+          onChange={(e) => {
+            let value = e.target.value * 1 /*{  convert to number if string } */
+            let tasksPerPage = value < 1 ? 1 : value;
+            paginationDispatch({
+              type: 'SET_TASKS_PER_PAGE',
+              tasksPerPage  
+            })
+          }}
+        />
       </div>
     </div>
  

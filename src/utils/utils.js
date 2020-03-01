@@ -28,12 +28,15 @@
     // Center point y
     if(!offsetObj.y) {
       el.style.top = ((heightOfPage - heightOfEl) / 2) + scrollTop + 'px';
+      el.style.opacity = 1;
     }else {
       el.style.top = (((heightOfPage - heightOfEl)) / 2) + offsetObj.y + scrollTop + 'px';
+      el.style.opacity = 1;
     }
   }else {
     el.style.left = ((widthOfPage - widthOfEl) / 2) + 'px';
     el.style.top = ((heightOfPage - heightOfEl) / 2) + scrollTop + 'px';
+    el.style.opacity = 1;
   }
 
   

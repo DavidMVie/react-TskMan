@@ -22,7 +22,9 @@ body {
   top: 0;
   max-width: 80vw;
   padding: $xs-size $m-size;
-  border-radius: $xs-size
+  border-radius: $xs-size;
+  opacity: 0;
+  transition: top .3s ease-in-out, opacity .5s ease-in-out;
 }
 
 .modal h2 {

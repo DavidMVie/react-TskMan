@@ -11,9 +11,23 @@
   border-radius: 10px;
 }
 
+.pagination-bar span {
+  font-size: $xs-size
+}
+
+.pagination-bar span.results-count {
+  font-weight: bold;
+}
+
 .pagination-bar ul {
   display: flex;
   margin: 5px
+}
+
+.pagination-bar ul span  {
+  position: relative;
+  top: 3px;
+  margin-right: 6px;
 }
 
 .pagination-bar ul li {

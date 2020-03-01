@@ -6,7 +6,7 @@ import TaskListItem from './TaskListItem';
 
 export const CompletedTasks = (props) => {
   
-  const [ completedRange, setCompletedRange ] = useState('day')
+  const [ completedRange, setCompletedRange ] = useState('month')
 
   // useEffect(() => {
   //   console.log(completedRange)
@@ -25,7 +25,7 @@ export const CompletedTasks = (props) => {
     <h3>Completed</h3> 
     <div className="completed-range-wrapper">
       <select className="select-css" onChange={(e) => {
-        setCompletedRange(e.target.value)}}>
+        setCompletedRange(e.target.value)}} value="month">
         <option value="day">Today</option>
         <option value="week">This Week</option>
         <option value="month">This Month</option>

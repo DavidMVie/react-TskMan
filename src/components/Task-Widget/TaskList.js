@@ -33,9 +33,20 @@ import PaginationContext from '../../context/pagination-context';
     }
   }
 
+  const getTasksMessage = () => {
+    if(!filters.completed && filters.text === '') {
+      return (<h3>You have {setTasksSentence(incompleteTaskCount)} to complete..</h3>)
+    }else if (!filters.completed && filters.text !== '') {
+      return (  incompleteTaskCount === 1 ? 
+      <h3>{incompleteTaskCount} task matching search term</h3> 
+        : 
+      <h3>{incompleteTaskCount} tasks matching search term</h3>)
+    }
+  }
+
   return (
     <>
-     {!filters.completed && <h3>You have {setTasksSentence(incompleteTaskCount)} to complete..</h3>}
+    {getTasksMessage()}
      {!filters.completed ? <IncompleteTasks haveTasks={tasks.length > 0} taskList={taskList} /> :  <CompletedTasks taskList={taskList} /> }
     </>
   )
